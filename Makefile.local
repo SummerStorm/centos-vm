@@ -1,0 +1,3 @@
+# Makefile.local
+UPDATE := true
+CM := nocm
