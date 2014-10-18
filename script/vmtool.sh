@@ -39,6 +39,9 @@ install_vmware_tools_centos_70()
     echo "==> Removing packages needed for building guest tools"
     yum -y remove gcc cpp kernel-devel kernel-headers perl
     
+    echo "==> Enabling automatic kernel modules feature"
+    echo "answer AUTO_KMODS_ENABLED yes" | sudo tee -a /etc/vmware-tools/locations
+
     exit
 }
 
