@@ -32,6 +32,7 @@
     ],
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
     "disk_size": 25000,
+    "disk_type_id": 0,
     "vmx_data": {
       "memsize": "4096",
       "numvcpus": "4",
