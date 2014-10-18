@@ -31,10 +31,10 @@
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6-desktop.cfg<enter>"
     ],
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 10140,
+    "disk_size": 30000,
     "vmx_data": {
-      "memsize": "1024",
-      "numvcpus": "1",
+      "memsize": "4096",
+      "numvcpus": "4",
       "cpuid.coresPerSocket": "1"
     }
   },
@@ -56,7 +56,7 @@
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6-desktop.cfg<enter>"
     ],
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 40960,
+    "disk_size": 30000,
     "vboxmanage": [
       ["modifyvm", "{{.Name}}", "--memory", "4096"],
       ["modifyvm", "{{.Name}}", "--cpus", "4"]
