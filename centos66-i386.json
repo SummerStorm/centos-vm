@@ -5,8 +5,8 @@
     "cm_version": "",
     "cleanup_pause": "",
     "headless": "",
-    "iso_url": "http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso",
-    "iso_checksum": "32c7695b97f7dcd1f59a77a71f64f2957dddf738",
+    "iso_url": "http://mirrors.kernel.org/centos/6.6/isos/i386/CentOS-6.6-i386-bin-DVD1.iso",
+    "iso_checksum": "d16aa4a8e6f71fb01fcc26d8ae0e3443ed514c8e",
     "update": "false",
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
@@ -18,9 +18,9 @@
     "no_proxy": "{{env `no_proxy`}}"
   },
   "builders": [{
-    "vm_name": "centos65",
+    "vm_name": "centos66-i386",
     "type": "vmware-iso",
-    "guest_os_type": "centos-64",
+    "guest_os_type": "centos",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
     "iso_checksum": "{{ user `iso_checksum` }}",
@@ -42,19 +42,19 @@
     }
   },
   {
-    "vm_name": "centos65",
+    "vm_name": "centos66-i386",
     "type": "virtualbox-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
     "iso_checksum": "{{ user `iso_checksum` }}",
     "iso_checksum_type": "sha1",
-    "guest_os_type": "RedHat_64",
+    "guest_os_type": "RedHat",
     "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
     "virtualbox_version_file": ".vbox_version",
     "ssh_username": "{{ user `ssh_username` }}",
     "ssh_password": "{{ user `ssh_password` }}",
-    "ssh_wait_timeout": "10000s",
     "headless": "{{ user `headless` }}",
+    "ssh_wait_timeout": "10000s",
     "boot_command": [
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
     ],
@@ -66,14 +66,14 @@
     ]
   },
   {
-    "vm_name": "centos65",
+    "vm_name": "centos66-i386",
     "type": "parallels-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
     "iso_checksum": "{{ user `iso_checksum` }}",
     "iso_checksum_type": "sha1",
-    "guest_os_type": "centos",
     "parallels_tools_flavor": "lin",
+    "guest_os_type": "centos",
     "ssh_username": "{{ user `ssh_username` }}",
     "ssh_password": "{{ user `ssh_password` }}",
     "ssh_wait_timeout": "10000s",
@@ -117,6 +117,6 @@
   "post-processors": [{
     "type": "vagrant",
     "keep_input_artifact": false,
-    "output": "box/{{.Provider}}/centos65-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
+    "output": "box/{{.Provider}}/centos66-i386-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
   }]
 }

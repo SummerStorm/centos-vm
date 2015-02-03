@@ -5,8 +5,8 @@
     "cm_version": "",
     "cleanup_pause": "",
     "headless": "",
-    "iso_url": "http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso",
-    "iso_checksum": "32c7695b97f7dcd1f59a77a71f64f2957dddf738",
+    "iso_url": "http://mirrors.kernel.org/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-bin-DVD1.iso",
+    "iso_checksum": "08be09fd7276822bd3468af8f96198279ffc41f0",
     "update": "false",
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
@@ -18,7 +18,7 @@
     "no_proxy": "{{env `no_proxy`}}"
   },
   "builders": [{
-    "vm_name": "centos65",
+    "vm_name": "centos66-docker",
     "type": "vmware-iso",
     "guest_os_type": "centos-64",
     "http_directory": "http",
@@ -42,7 +42,7 @@
     }
   },
   {
-    "vm_name": "centos65",
+    "vm_name": "centos66-docker",
     "type": "virtualbox-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
@@ -66,14 +66,14 @@
     ]
   },
   {
-    "vm_name": "centos65",
+    "vm_name": "centos66-docker",
     "type": "parallels-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
     "iso_checksum": "{{ user `iso_checksum` }}",
     "iso_checksum_type": "sha1",
-    "guest_os_type": "centos",
     "parallels_tools_flavor": "lin",
+    "guest_os_type": "centos",
     "ssh_username": "{{ user `ssh_username` }}",
     "ssh_password": "{{ user `ssh_password` }}",
     "ssh_wait_timeout": "10000s",
@@ -111,12 +111,13 @@
       "script/vagrant.sh",
       "script/vmtool.sh",
       "script/cmtool.sh",
+      "script/docker.sh",
       "script/cleanup.sh"
     ]
   }],
   "post-processors": [{
     "type": "vagrant",
     "keep_input_artifact": false,
-    "output": "box/{{.Provider}}/centos65-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
+    "output": "box/{{.Provider}}/centos66-docker-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
   }]
 }

@@ -5,8 +5,8 @@
     "cm_version": "",
     "cleanup_pause": "",
     "headless": "",
-    "iso_url": "http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso",
-    "iso_checksum": "32c7695b97f7dcd1f59a77a71f64f2957dddf738",
+    "iso_url": "http://mirrors.kernel.org/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-bin-DVD1.iso",
+    "iso_checksum": "08be09fd7276822bd3468af8f96198279ffc41f0",
     "update": "false",
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
@@ -18,7 +18,7 @@
     "no_proxy": "{{env `no_proxy`}}"
   },
   "builders": [{
-    "vm_name": "centos65",
+    "vm_name": "centos66-desktop",
     "type": "vmware-iso",
     "guest_os_type": "centos-64",
     "http_directory": "http",
@@ -31,18 +31,18 @@
     "headless": "{{ user `headless` }}",
     "tools_upload_flavor": "linux",
     "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6-desktop.cfg<enter>"
     ],
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
     "disk_size": 10140,
     "vmx_data": {
-      "memsize": "512",
+      "memsize": "1024",
       "numvcpus": "1",
       "cpuid.coresPerSocket": "1"
     }
   },
   {
-    "vm_name": "centos65",
+    "vm_name": "centos66-desktop",
     "type": "virtualbox-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
@@ -56,34 +56,34 @@
     "ssh_wait_timeout": "10000s",
     "headless": "{{ user `headless` }}",
     "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6-desktop.cfg<enter>"
     ],
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
     "disk_size": 10140,
     "vboxmanage": [
-      ["modifyvm", "{{.Name}}", "--memory", "512"],
+      ["modifyvm", "{{.Name}}", "--memory", "1024"],
       ["modifyvm", "{{.Name}}", "--cpus", "1"]
     ]
   },
   {
-    "vm_name": "centos65",
+    "vm_name": "centos66-desktop",
     "type": "parallels-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
     "iso_checksum": "{{ user `iso_checksum` }}",
     "iso_checksum_type": "sha1",
-    "guest_os_type": "centos",
     "parallels_tools_flavor": "lin",
+    "guest_os_type": "centos",
     "ssh_username": "{{ user `ssh_username` }}",
     "ssh_password": "{{ user `ssh_password` }}",
     "ssh_wait_timeout": "10000s",
     "boot_command": [
-      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6.cfg<enter>"
+      "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6-desktop.cfg<enter>"
     ],
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
     "disk_size": 10140,
     "prlctl": [
-      ["set", "{{.Name}}", "--memsize", "512"],
+      ["set", "{{.Name}}", "--memsize", "1024"],
       ["set", "{{.Name}}", "--cpus", "1"]
     ]
   }],
@@ -109,6 +109,7 @@
       "script/sshd.sh",
       "script/update.sh",
       "script/vagrant.sh",
+      "script/desktop.sh",
       "script/vmtool.sh",
       "script/cmtool.sh",
       "script/cleanup.sh"
@@ -117,6 +118,7 @@
   "post-processors": [{
     "type": "vagrant",
     "keep_input_artifact": false,
-    "output": "box/{{.Provider}}/centos65-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
+    "vagrantfile_template": "tpl/vagrantfile-centos66-desktop.tpl",
+    "output": "box/{{.Provider}}/centos66-desktop-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
   }]
 }

@@ -5,8 +5,8 @@
     "cm_version": "",
     "cleanup_pause": "",
     "headless": "",
-    "iso_url": "http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso",
-    "iso_checksum": "32c7695b97f7dcd1f59a77a71f64f2957dddf738",
+    "iso_url": "http://mirrors.kernel.org/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-bin-DVD1.iso",
+    "iso_checksum": "08be09fd7276822bd3468af8f96198279ffc41f0",
     "update": "false",
     "ssh_username": "vagrant",
     "ssh_password": "vagrant",
@@ -18,7 +18,7 @@
     "no_proxy": "{{env `no_proxy`}}"
   },
   "builders": [{
-    "vm_name": "centos65",
+    "vm_name": "centos66",
     "type": "vmware-iso",
     "guest_os_type": "centos-64",
     "http_directory": "http",
@@ -42,7 +42,7 @@
     }
   },
   {
-    "vm_name": "centos65",
+    "vm_name": "centos66",
     "type": "virtualbox-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
@@ -66,7 +66,7 @@
     ]
   },
   {
-    "vm_name": "centos65",
+    "vm_name": "centos66",
     "type": "parallels-iso",
     "http_directory": "http",
     "iso_url": "{{ user `iso_url` }}",
@@ -117,6 +117,6 @@
   "post-processors": [{
     "type": "vagrant",
     "keep_input_artifact": false,
-    "output": "box/{{.Provider}}/centos65-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
+    "output": "box/{{.Provider}}/centos66-{{user `cm`}}{{user `cm_version`}}-{{user `version`}}.box"
   }]
 }
