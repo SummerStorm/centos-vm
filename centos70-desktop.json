@@ -35,11 +35,11 @@
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks7-desktop.cfg<enter>"
     ],
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 40960,
+    "disk_size": 25000,
     "vmx_data": {
-      "memsize": "1024",
-      "numvcpus": "1",
-      "cpuid.coresPerSocket": "1"
+      "memsize": "4096",
+      "numvcpus": "4",
+      "cpuid.coresPerSocket": "4"
     }
   },
   {
@@ -65,7 +65,7 @@
       ["modifyvm", "{{.Name}}", "--memory", "1024"],
       ["modifyvm", "{{.Name}}", "--cpus", "1"]
     ]
-  },
+  }
   {
     "vm_name": "centos70-desktop",
     "type": "parallels-iso",

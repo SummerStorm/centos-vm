@@ -34,11 +34,11 @@
       "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort}}/ks6-desktop.cfg<enter>"
     ],
     "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
-    "disk_size": 10140,
+    "disk_size": 25000,
     "vmx_data": {
-      "memsize": "1024",
-      "numvcpus": "1",
-      "cpuid.coresPerSocket": "1"
+      "memsize": "4096",
+      "numvcpus": "4",
+      "cpuid.coresPerSocket": "4"
     }
   },
   {

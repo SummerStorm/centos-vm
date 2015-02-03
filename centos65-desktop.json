@@ -39,7 +39,7 @@
     "vmx_data": {
       "memsize": "4096",
       "numvcpus": "4",
-      "cpuid.coresPerSocket": "1"
+      "cpuid.coresPerSocket": "4"
     }
   },
   {
