@@ -65,7 +65,7 @@
       ["modifyvm", "{{.Name}}", "--memory", "1024"],
       ["modifyvm", "{{.Name}}", "--cpus", "1"]
     ]
-  }
+  },
   {
     "vm_name": "centos70-desktop",
     "type": "parallels-iso",
