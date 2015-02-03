@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
         v.gui = true
         v.vmx["memsize"] = "4096"
         v.vmx["numvcpus"] = "4"
-        v.vmx["cpuid.coresPerSocket"] = "1"
+        v.vmx["cpuid.coresPerSocket"] = "4"
         v.vmx["ethernet0.virtualDev"] = "vmxnet3"
         v.vmx["RemoteDisplay.vnc.enabled"] = "false"
         v.vmx["RemoteDisplay.vnc.port"] = "5900"
