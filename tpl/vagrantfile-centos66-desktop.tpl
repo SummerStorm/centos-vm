@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
  
     config.vm.provider :virtualbox do |v, override|
         v.gui = true
-        v.customize ["modifyvm", :id, "--memory", 4096]
+        v.customize ["modifyvm", :id, "--memory", 8192]
         v.customize ["modifyvm", :id, "--cpus", 4]
         v.customize ["modifyvm", :id, "--vram", "256"]
         v.customize ["setextradata", "global", "GUI/MaxGuestResolution", "any"]
@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     ["vmware_fusion", "vmware_workstation"].each do |provider|
       config.vm.provider provider do |v, override|
         v.gui = true
-        v.vmx["memsize"] = "4096"
+        v.vmx["memsize"] = "8192"
         v.vmx["numvcpus"] = "4"
         v.vmx["cpuid.coresPerSocket"] = "4"
         v.vmx["ethernet0.virtualDev"] = "vmxnet3"
