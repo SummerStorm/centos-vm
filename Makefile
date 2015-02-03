@@ -20,11 +20,11 @@ CENTOS511_X86_64 ?= http://mirrors.kernel.org/centos/5.11/isos/x86_64/CentOS-5.1
 CENTOS511_I386 ?= http://mirrors.kernel.org/centos/5.11/isos/i386/CentOS-5.11-i386-bin-DVD-1of2.iso
 CENTOS64_X86_64 ?= http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/x86_64/CentOS-6.4-x86_64-bin-DVD1.iso
 CENTOS64_I386 ?= http://mirror.symnds.com/distributions/CentOS-vault/6.4/isos/i386/CentOS-6.4-i386-bin-DVD1.iso
-CENTOS65_X86_64 ?= http://mirrors.kernel.org/centos/6.5/isos/x86_64/CentOS-6.5-x86_64-bin-DVD1.iso
+CENTOS65_X86_64 ?= iso/CentOS-6.5-x86_64-bin-DVD1.iso
 CENTOS65_I386 ?= http://mirrors.kernel.org/centos/6.5/isos/i386/CentOS-6.5-i386-bin-DVD1.iso
-CENTOS66_X86_64 ?= http://mirrors.kernel.org/centos/6.6/isos/x86_64/CentOS-6.6-x86_64-bin-DVD1.iso
+CENTOS66_X86_64 ?= iso/CentOS-6.6-x86_64-bin-DVD1.iso
 CENTOS66_I386 ?= http://mirrors.kernel.org/centos/6.6/isos/i386/CentOS-6.6-i386-bin-DVD1.iso
-CENTOS70_X86_64 ?= http://mirrors.sonic.net/centos/7.0.1406/isos/x86_64/CentOS-7.0-1406-x86_64-DVD.iso
+CENTOS70_X86_64 ?= iso/CentOS-7.0-1406-x86_64-DVD.iso
 
 # Possible values for CM: (nocm | chef | chefdk | salt | puppet)
 CM ?= nocm
